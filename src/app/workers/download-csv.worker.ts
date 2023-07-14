@@ -2,7 +2,7 @@
 import * as Papa from 'papaparse';
 
 addEventListener('message', ({ data }) => {
-  let file = data.data;
+  let file = data.obj;
   // debugger
   let { columns } = data;
   const blobGen = (dt, displayedColumns) => {
@@ -19,7 +19,7 @@ addEventListener('message', ({ data }) => {
 
   postMessage({
     result: {
-      blob: new Blob([Papa.unparse(file)], { type: 'text/csv' }),
+      blob: new Blob([Papa.unparse(file,)], { type: 'text/csv' }),
     },
     progress: 100,
   });

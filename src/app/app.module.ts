@@ -4,17 +4,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withInterceptors,
+} from '@angular/common/http';
+import { CurrencyPipe, DecimalPipe } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    MatButtonModule,HttpClientModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CurrencyPipe,DecimalPipe],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
